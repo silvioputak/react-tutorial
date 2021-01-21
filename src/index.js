@@ -5,30 +5,33 @@ import ReactDom from 'react-dom'
 import './index.css'
 
 // Setup variables
-const author = "Silvio Putak"
-const title = "I love you to moon and the back"
-const img = "https://picsum.photos/200"
+const firstBook = {
+   img: "https://picsum.photos/200",
+   author: "Silvio Putak",
+   title: "I love you to moon and the back"
+}
 
 //Componenets
 function BookList(){
    return(
       <section className="booklist">
-         <Book/>
-         <Book/>
-         <Book/>
-         <Book/>
+         <Book img={firstBook.img} title={firstBook.title} author={firstBook.author}/>
+         <Book img={firstBook.img} title="Krto Mesić" author="Silvio Putka" godina={22}/>
+         
+         
          
       </section>
    );    
 }
 
-const Book = () => {
+const Book = (props) => {
+   console.log(props)
    return(
       <article className="book">
-         <img src={img} alt=""/>
-         <h1>{title}</h1>
-         <h4>{author}</h4>
-         <p>{/*let x = 6*/}</p>
+         <img src={props.img} alt=""/>
+         <h1>{props.title}</h1>
+         <h4>{props.author}</h4>
+         
          
       </article>
    );
