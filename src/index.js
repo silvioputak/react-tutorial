@@ -4,34 +4,16 @@ import ReactDom from 'react-dom'
 //CSS
 import './index.css'
 
-// Setup Array of objects
-const books = [
-   {
-      id:1,
-      img: "https://m.media-amazon.com/images/I/91+NBrXG-PL._AC_UY218_.jpg",
-      author: "BARACK OBAMA",
-      title: "A promised Land"
-   },
-   {
-      id:2,
-      img: "https://m.media-amazon.com/images/I/71ykofulttL._AC_UY218_.jpg",
-      author: "JEFF BEZOS",
-      title: "Jef Bezos and the Age of Amazon"
-   },
-   {
-      id:3,
-      img: "https://m.media-amazon.com/images/I/61vRDNlfPEL._AC_UY218_.jpg",
-      author: "KLAUS SCHWAB",
-      title: "COVID-19: THEORY OF LIE"
-   },
-]
+import Book from './Book'
+import {data} from './books'
 
+import {greeting} from './testing/testing'
 //Componenets
 
    function BookList(){
       return(
       <section className="booklist">
-         {books.map((book)=> {
+         {data.map((book)=> {
             return(
                 <Book key={book.id} {...book}/>
             )
@@ -39,20 +21,8 @@ const books = [
       </section>
    );    
 }
-// Passing props to component
-const Book = ({img, title, author}) => {
-   //console.log(props)
-   //const {img,title,author} = props
-   
-   return(
-      <article className="book">
-         <img src={img} alt=""/>
-         <h1>{title}</h1>
-         <h4>{author}</h4>
-         
-      </article>
-   );
-}
+// Passing props to book
+
 
 //const Image = () => <img src="https://picsum.photos/200" alt=""/>
 //const Title = () => <h1>I love you to moon and the back</h1>
